@@ -1,39 +1,61 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    margin: 0;
 }
 
 
-/* Main Card */
+/* MAIN */
 
 .container {
-    background: white;
-    padding: 25px;
-    width: 350px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 420px;
+    margin: 50px auto;
 }
+
+.dark {
+    background: #111827;
+}
+
+.dark .card,
+.dark li {
+    background: #1f2937;
+    color: white;
+}
+
+.dark input {
+    background: #374151;
+    color: white;
+    border: none;
+}
+
+.dark button {
+    opacity: 0.9;
+}
+
+
+/* TITLE */
 
 h1 {
     text-align: center;
+    color: white;
     margin-bottom: 20px;
-    color: #333;
 }
 
 
-/* Input Section */
+/* CARD */
 
-.input-section {
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* INPUT */
+
+.input-card {
     display: flex;
     gap: 10px;
 }
@@ -41,89 +63,142 @@ h1 {
 input {
     flex: 1;
     padding: 10px;
-    border: 2px solid #ddd;
     border-radius: 8px;
+    border: 1px solid #ddd;
     outline: none;
 }
 
 input:focus {
-    border-color: #667eea;
+    border-color: #4f46e5;
 }
 
 
-/* Add Button */
+/* BUTTON */
 
 button {
-    padding: 10px 15px;
+    padding: 8px 12px;
     border: none;
-    background: #667eea;
-    color: white;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
+    background: #4f46e5;
+    color: white;
+    transition: 0.2s;
 }
 
 button:hover {
-    background: #5a67d8;
+    background: #4338ca;
 }
 
 
-/* Task List */
+/* STATS */
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stats span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+
+/* FILTER */
+
+.filters {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.filters button {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.filters button:hover {
+    background: #c7d2fe;
+}
+
+
+/* TASK AREA */
+
+.tasks {
+    display: flex;
+    gap: 10px;
+}
+
+.task-section {
+    flex: 1;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+/* TASK CARD */
 
 li {
-    margin-top: 12px;
-    padding: 10px;
-    background: #f7f7f7;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: #f9fafb;
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 10px;
+    border-left: 4px solid #4f46e5;
     transition: 0.2s;
 }
 
 li:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
 }
 
 
-/* Completed Task */
+/* TEXT */
 
 li span {
-    cursor: pointer;
+    font-weight: 500;
 }
 
-li span.completed {
-    text-decoration: line-through;
+li small {
     color: gray;
 }
 
 
-/* Delete Button */
+/* BUTTON GROUP */
 
-li button {
-    background: #ff4d4d;
+.task-buttons {
+    margin-top: 8px;
 }
 
-li button:hover {
-    background: #e60000;
+
+/* COMPLETE */
+
+.complete {
+    background: #22c55e;
 }
 
-.filters {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
+.complete:hover {
+    background: #16a34a;
 }
 
-.filters button {
-    flex: 1;
-    margin: 2px;
-    padding: 8px;
-    border-radius: 6px;
-    background: #ddd;
-    color: black;
+
+/* DELETE */
+
+.delete {
+    background: #ef4444;
 }
 
-.filters button:hover {
-    background: #667eea;
-    color: white;
+.delete:hover {
+    background: #dc2626;
+}
+
+
+/* COMPLETED */
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+    border-left-color: #22c55e;
 }
