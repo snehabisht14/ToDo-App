@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", function() {});
+
+
 // ELEMENTS
 const pendingList = document.getElementById("pending-list");
 const completedList = document.getElementById("completed-list");
