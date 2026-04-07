@@ -202,3 +202,55 @@ li small {
     color: gray;
     border-left-color: #22c55e;
 }
+
+
+/* CATEGORY COLORS */
+
+li[data-category="Work"] {
+    border-left-color: #3b82f6;
+}
+
+li[data-category="Study"] {
+    border-left-color: #22c55e;
+}
+
+li[data-category="Personal"] {
+    border-left-color: #f59e0b;
+}
+
+
+/* NOTIFICATION */
+
+#notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4f46e5;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: none;
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 500px) {
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    input {
+        font-size: 14px;
+    }
+    button {
+        font-size: 12px;
+        padding: 6px;
+    }
+    .tasks {
+        flex-direction: column;
+    }
+}

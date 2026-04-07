@@ -19,8 +19,19 @@
         <!-- INPUT CARD -->
         <div class="card input-card">
             <input type="text" id="task-input" placeholder="What do you want to do today?">
-            <button onclick="addTask()">Add Task</button>
+
+            <select id="category">
+    <option value="General">General</option>
+    <option value="Work">Work</option>
+    <option value="Study">Study</option>
+    <option value="Personal">Personal</option>
+  </select>
+
+            <button onclick="addTask()">Add</button>
         </div>
+
+        <!-- Notification -->
+        <div id="notification"></div>
 
         <!-- STATS -->
         <div class="card stats">

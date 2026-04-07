@@ -28,8 +28,21 @@ function renderTasks() {
     pendingList.innerHTML = "";
     completedList.innerHTML = "";
 
+
     tasks.forEach((task, index) => {
         const li = document.createElement("li");
+        li.setAttribute("draggable", true);
+        li.dataset.category = task.category;
+        // DRAG START
+        li.ondragstart = () => {
+            li.classList.add("dragging");
+        };
+
+        // DRAG END
+        li.ondragend = () => {
+            li.classList.remove("dragging");
+        };
+
 
         if (task.completed) li.classList.add("completed");
 
@@ -82,6 +95,13 @@ function renderTasks() {
             pendingList.appendChild(li);
         }
     });
+    [pendingList, completedList].forEach(list => {
+        list.ondragover = e => {
+            e.preventDefault();
+            const dragging = document.querySelector(".dragging");
+            list.appendChild(dragging);
+        };
+    });
 
     updateStats();
 }
@@ -89,6 +109,7 @@ function renderTasks() {
 // ADD TASK
 function addTask() {
     const input = document.getElementById("task-input");
+    const category = document.getElementById("category").value;
     const text = input.value.trim();
 
     if (text === "") {
@@ -99,12 +120,14 @@ function addTask() {
     const task = {
         text: text,
         time: new Date().toLocaleString(),
-        completed: false
+        completed: false,
+        category: category
     };
 
     tasks.push(task);
     saveTasks();
     renderTasks();
+    showNotification("Task added successfully ✅");
 
     input.value = "";
 }
@@ -138,3 +161,13 @@ if (localStorage.getItem("darkMode") === "true") {
 
 // INITIAL LOAD
 renderTasks();
+
+function showNotification(message) {
+    const notif = document.getElementById("notification");
+    notif.innerText = message;
+    notif.style.display = "block";
+
+    setTimeout(() => {
+        notif.style.display = "none";
+    }, 2000);
+}
